@@ -1,16 +1,31 @@
 package Vehiculo;
-
+/**
+ * 
+ * @author Jose Ángel
+ *
+ */
 public class Vehiculo {
+	//Declaro las variables de tipo String y de tipo int
 	private String Matricula;
 	private String Marca;
 	private String Modelo;
 	private int año;
 	private String color;
 	
-
+/**
+ * Constructor Vacío
+ */
 	public Vehiculo() {
 		super();
 	}
+	/**
+	 * Constructor con parámetros
+	 * @param matricula
+	 * @param marca
+	 * @param modelo
+	 * @param año
+	 * @param color
+	 */
 	public Vehiculo(String matricula, String marca, String modelo, int año, String color) {
 		super();
 		Matricula = matricula;
@@ -19,6 +34,8 @@ public class Vehiculo {
 		this.año = año;
 		this.color = color;
 	}
+	
+	 // Getters and Setters
 	public String getMatricula() {
 		return Matricula;
 	}
@@ -49,6 +66,7 @@ public class Vehiculo {
 	public void setColor(String color) {
 		this.color = color;
 	}
+	// método toString()
 	@Override
 	public String toString() {
 		return "Vehiculo [Matricula=" + Matricula + ", Marca=" + Marca + ", Modelo=" + Modelo + ", año=" + año

@@ -1,74 +1,66 @@
 package Cliente;
-
 import java.util.ArrayList;
-
+import java.util.List;
 public class GestionarCliente {
-
-    private ArrayList<Cliente> clientes;
-
-    public GestionarCliente() {
-        clientes = new ArrayList<Cliente>();
-    }
-
-    public void insertarCliente(Cliente c) {
-        clientes.add(c);
-        System.out.println("Cliente añadido correctamente.");
-    }
-
-    public void buscarClientePorDni(String dni) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getDni().equals(dni)) {
-                System.out.println(cliente);
-                return;
-            }
-        }
-        System.out.println("No se encontró ningún cliente con ese DNI.");
-    }
-
-    public ArrayList<Cliente> buscarClientePorNombreYApellidos(String nombre, String apellidos) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getNombre().equals(nombre) && cliente.getApellidos().equals(apellidos)) {
-                System.out.println(cliente);
-                return;
-            }
-        }
-        System.out.println("No se encontró ningún cliente con ese nombre y apellidos.");
-    }
-
-    public void modificarCliente() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el DNI del cliente que quieres modificar:");
-        String dni = sc.nextLine();
-        for (Cliente cliente : clientes) {
-            if (cliente.getDni().equals(dni)) {
-                System.out.println("Introduce el nuevo nombre del cliente (actual: " + cliente.getNombre() + "):");
-                String nombre = sc.nextLine();
-                System.out.println("Introduce los nuevos apellidos del cliente (actual: " + cliente.getApellidos() + "):");
-                String apellidos = sc.nextLine();
-                System.out.println("Introduce la nueva edad del cliente (actual: " + cliente.getEdad() + "):");
-                int edad = sc.nextInt();
-                sc.nextLine(); // Consumimos el salto de línea
-                cliente.setNombre(nombre);
-                cliente.setApellidos(apellidos);
-                cliente.setEdad(edad);
-                System.out.println("Cliente modificado correctamente.");
-                return;
-            }
-        }
-        System.out.println("No se encontró ningún cliente con ese DNI.");
-    }
-
-    public void borrarCliente() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Introduce el DNI del cliente que quieres borrar:");
-        String dni = sc.nextLine();
-        for (Cliente cliente : clientes) {
-            if (cliente.getDni().equals(dni)) {
-                clientes.remove(cliente);
-                System.out.println("Cliente borrado correctamente.");
-                return;
-            }
-        }
-        System.out.println("No se encontró ningún cliente con ese DNI.");
-
+	/*Insertar Cliente
+	◦ Buscar Cliente
+	▪ Por DNI
+	▪ Por nombre y apellidos
+	◦ Modificar Cliente
+	◦ Borrar Cliente */
+	
+	     ArrayList<Cliente> clientes;
+/**
+ * Método para insertar cliente
+ * @param cliente
+ */
+	    public void insertarCliente(Cliente cliente) {
+	        clientes.add(cliente);
+	        System.out.println("Se ha insertado correctamente");
+	    }
+/**
+ * Método para buscar Cliente por el dni
+ * @param dni
+ * @return
+ */
+	    public Cliente buscarClientePorDni(String dni) {
+	        for (Cliente cliente : clientes) {
+	            if (cliente.getDni().equals(dni)) {
+	                return cliente;
+	            }
+	        }
+	        return null; // Si no se encuentra el cliente
+	    }
+/**
+ * Método para buscar cliente por nombre y apellidos
+ * @param nombre
+ * @param apellidos
+ * @return
+ */
+	    public ArrayList<Cliente> buscarClientePorNombreApellidos(String nombre, String apellidos) {
+	        ArrayList<Cliente> clientesEncontrados = new ArrayList<>();
+	        for (Cliente cliente : clientes) {
+	            if (cliente.getNombre().equalsIgnoreCase(nombre) && cliente.getApellidos().equalsIgnoreCase(apellidos)) {
+	                clientesEncontrados.add(cliente);
+	            }
+	        }
+	        return clientesEncontrados;
+	    }
+/**
+ * Método para modificar cliente 
+ * @param cliente
+ */
+	    public void modificarCliente(Cliente cliente) {
+	        int index = clientes.indexOf(cliente);
+	        if (index != -1) {
+	            clientes.set(index, cliente);
+	        }
+	    }
+/**
+ * Método para borrar Cliente
+ * @param cliente
+ */
+	    public void borrarCliente(Cliente cliente) {
+	        clientes.remove(cliente);
+	    }
 }
