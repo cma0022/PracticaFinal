@@ -89,7 +89,7 @@ public class GestionarVehiculo {
 		vehiculo.setAño(año);
 		vehiculo.setColor(color);
 	}
-
+	
 	// El método borrarVehiculo elimina un objeto Vehiculo de la lista.
 	public void borrarVehiculo(Vehiculo vehiculo) {
 		listaVehiculos.remove(vehiculo);
