@@ -61,6 +61,23 @@ public class GestionarCliente {
 	        }
 	    }
 	    
+
+		/**
+		 * Método para modificar cliente 
+		 * @param cliente
+		 */
+	    public void modificarCliente(int indice, String dni, String nombre, String apellidos, int edad) {
+	    	Cliente clienteModificado = clientes.get(indice);
+	    	clienteModificado.setDni(dni);
+	    	clienteModificado.setNombre(nombre);
+	    	clienteModificado.setApellidos(apellidos);
+	    	clienteModificado.setEdad(edad);
+	    	
+	    	clientes.set(indice, clienteModificado);
+	    	System.out.println("Cliente modificado.");
+	    }
+	    
+	    
 		/**
 		 * Método para borrar Cliente
 		 * @param cliente

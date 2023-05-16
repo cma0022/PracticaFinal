@@ -8,15 +8,14 @@ import java.util.ArrayList;
  * modificar y borrar vehículos de la lista.
  */
 public class GestionarVehiculo {
-	
-	ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
 
+	ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
+	
 	// El método insertarVehiculo toma un objeto Vehiculo y lo agrega a la lista.
 	public void insertarVehiculo(Vehiculo vehiculo) {
 		listaVehiculos.add(vehiculo);
 		System.out.println("Se ha insertado el vehículo correctamente");
 	}
-
 	/*
 	 * El método buscarVehiculoPorMatricula toma una matrícula y busca un vehículo
 	 * con esa matrícula en la lista. Devuelve el primer vehículo encontrado con esa
