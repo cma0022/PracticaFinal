@@ -50,12 +50,15 @@ public class GestionarCliente {
  * Método para modificar cliente 
  * @param cliente
  */
-	    public void modificarCliente(Cliente cliente) {
-	    	int index = -1;
-	        index = clientes.indexOf(cliente);
-	        if (index != -1) {
-	            clientes.set(index, cliente);
-	        }
+	    public void modificarCliente(int indice, String dni, String nombre, String apellidos, int edad) {
+	    	Cliente clienteModificado = clientes.get(indice);
+	    	clienteModificado.setDni(dni);
+	    	clienteModificado.setNombre(nombre);
+	    	clienteModificado.setApellidos(apellidos);
+	    	clienteModificado.setEdad(edad);
+	    	
+	    	clientes.set(indice, clienteModificado);
+	    	System.out.println("Cliente modificado.");
 	    }
 	    
 	    

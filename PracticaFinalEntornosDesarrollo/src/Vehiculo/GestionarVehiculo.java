@@ -10,13 +10,12 @@ import java.util.ArrayList;
 public class GestionarVehiculo {
 	
 	ArrayList<Vehiculo> listaVehiculos;
-
+	
 	// El método insertarVehiculo toma un objeto Vehiculo y lo agrega a la lista.
 	public void insertarVehiculo(Vehiculo vehiculo) {
 		listaVehiculos.add(vehiculo);
 		System.out.println("Se ha insertado el vehículo correctamente");
 	}
-
 	/*
 	 * El método buscarVehiculoPorMatricula toma una matrícula y busca un vehículo
 	 * con esa matrícula en la lista. Devuelve el primer vehículo encontrado con esa
