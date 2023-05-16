@@ -1,6 +1,6 @@
 package Cliente;
 import java.util.ArrayList;
-import java.util.List;
+
 public class GestionarCliente {
 	/*Insertar Cliente
 	◦ Buscar Cliente
@@ -9,20 +9,22 @@ public class GestionarCliente {
 	◦ Modificar Cliente
 	◦ Borrar Cliente */
 	
-	     ArrayList<Cliente> clientes;
-/**
- * Método para insertar cliente
- * @param cliente
- */
+	     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	     
+		/**
+		 * Método para insertar cliente
+		 * @param cliente
+		 */
 	    public void insertarCliente(Cliente cliente) {
 	        clientes.add(cliente);
 	        System.out.println("Se ha insertado correctamente");
 	    }
-/**
- * Método para buscar Cliente por el dni
- * @param dni
- * @return
- */
+	    
+		/**
+		 * Método para buscar Cliente por el dni
+		 * @param dni
+		 * @return
+		 */
 	    public Cliente buscarClientePorDni(String dni) {
 	        for (Cliente cliente : clientes) {
 	            if (cliente.getDni().equals(dni)) {
@@ -31,12 +33,13 @@ public class GestionarCliente {
 	        }
 	        return null; // Si no se encuentra el cliente
 	    }
-/**
- * Método para buscar cliente por nombre y apellidos
- * @param nombre
- * @param apellidos
- * @return
- */
+	    
+		/**
+		 * Método para buscar cliente por nombre y apellidos
+		 * @param nombre
+		 * @param apellidos
+		 * @return
+		 */
 	    public ArrayList<Cliente> buscarClientePorNombreApellidos(String nombre, String apellidos) {
 	        ArrayList<Cliente> clientesEncontrados = new ArrayList<>();
 	        for (Cliente cliente : clientes) {
@@ -46,20 +49,22 @@ public class GestionarCliente {
 	        }
 	        return clientesEncontrados;
 	    }
-/**
- * Método para modificar cliente 
- * @param cliente
- */
+	    
+		/**
+		 * Método para modificar cliente 
+		 * @param cliente
+		 */
 	    public void modificarCliente(Cliente cliente) {
 	        int index = clientes.indexOf(cliente);
 	        if (index != -1) {
 	            clientes.set(index, cliente);
 	        }
 	    }
-/**
- * Método para borrar Cliente
- * @param cliente
- */
+	    
+		/**
+		 * Método para borrar Cliente
+		 * @param cliente
+		 */
 	    public void borrarCliente(Cliente cliente) {
 	        clientes.remove(cliente);
 	    }

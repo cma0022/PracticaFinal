@@ -23,14 +23,27 @@ public class MenuA {
 					break;
 				}
 				case 2: {
-					gestionCliente.
+					String dni = scan.nextLine();
+					gestionCliente.buscarClientePorDni(dni);
 					break;
 				}
 				case 3:{
-					
+					System.out.println("Introduce el nombre.");
+					String nombre = scan.nextLine();
+					System.out.println("Introduce los apellidos.");
+					String apellidos = scan.nextLine();
+					gestionCliente.buscarClientePorNombreApellidos(nombre, apellidos);
 					break;
 				}
 				case 4:{
+					gestionCliente.modificarCliente(null);
+					break;
+				}
+				case 5:{
+					gestionCliente.borrarCliente(null);
+					break;
+				}
+				case 6:{
 					System.out.println("LA APLICACIÓN VA A CERRARSE.");
 					scan.close();
 					System.exit(-1);

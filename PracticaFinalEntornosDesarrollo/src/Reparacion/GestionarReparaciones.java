@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import Cliente.Cliente;
 import Vehiculo.Vehiculo;
 
+/**
+ * 16/05/2023
+ * @author Carlos Martínez Antolínez
+ * Esta preciosa creación es obra del gran y famoso programadas carlos_magy
+ */
 public class GestionarReparaciones {
 
 	ArrayList<Reparacion> reparaciones = new ArrayList<Reparacion>();
@@ -36,15 +41,17 @@ public class GestionarReparaciones {
 	 * @param totalReparacion
 	 * @return
 	 */
-	public Reparacion modificarReparacion(Reparacion r1, Cliente c1, Vehiculo v1, String descripcion, String fecha, String tiempo, double totalReparacion) {
-		r1.setCliente(c1);
-		r1.setVehiculo(v1);
-		r1.setDescripcion(descripcion);
-		r1.setFecha(fecha);
-		r1.setTiempo(tiempo);
-		r1.setTotalReparacion(totalReparacion);
+	public void modificarReparacion(int indice, Cliente c1, Vehiculo v1, String descripcion, String fecha, String tiempo, double totalReparacion) {
+		Reparacion reparacion = reparaciones.get(indice);
+		reparacion.setCliente(c1);
+		reparacion.setVehiculo(v1);
+		reparacion.setDescripcion(descripcion);
+		reparacion.setFecha(fecha);
+		reparacion.setTiempo(tiempo);
+		reparacion.setTotalReparacion(totalReparacion);
+		
+		reparaciones.add(indice, reparacion);
 		System.out.println("Reparación modificada.");
-		return r1;
 	}
 	
 	/**
