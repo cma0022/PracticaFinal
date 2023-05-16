@@ -51,11 +51,14 @@ public class GestionarCliente {
  * @param cliente
  */
 	    public void modificarCliente(Cliente cliente) {
-	        int index = clientes.indexOf(cliente);
+	    	int index = -1;
+	        index = clientes.indexOf(cliente);
 	        if (index != -1) {
 	            clientes.set(index, cliente);
 	        }
 	    }
+	    
+	    
 /**
  * Método para borrar Cliente
  * @param cliente
