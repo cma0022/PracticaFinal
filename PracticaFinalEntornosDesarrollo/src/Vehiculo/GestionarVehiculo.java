@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class GestionarVehiculo {
 	
-	ArrayList<Vehiculo> listaVehiculos;
+	ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
 
 	// El método insertarVehiculo toma un objeto Vehiculo y lo agrega a la lista.
 	public void insertarVehiculo(Vehiculo vehiculo) {
