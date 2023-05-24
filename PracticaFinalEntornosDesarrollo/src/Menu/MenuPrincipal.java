@@ -2,17 +2,9 @@ package Menu;
 
 import java.util.Scanner;
 
-import Cliente.GestionarCliente;
-import Reparacion.GestionarReparaciones;
-import Vehiculo.GestionarVehiculo;
-
-public class Menu {
+public class MenuPrincipal {
 
 	Scanner scan = new Scanner(System.in);
-	
-	GestionarVehiculo gestionVehiculo = new GestionarVehiculo();
-	GestionarCliente gestionCliente = new GestionarCliente();
-	GestionarReparaciones gestionReparacion = new GestionarReparaciones();
 	
 	public void mostrarMenu() {
 		int id = -1;
@@ -25,15 +17,18 @@ public class Menu {
 				
 				switch (id) {
 				case 1: {
-					
+					MenuClientes mc = new MenuClientes();
+					mc.mostrarMenuCliente();
 					break;
 				}
 				case 2: {
-					
+					MenuVehiculos mv = new MenuVehiculos();
+					mv.mostrarMenuVehiculos();
 					break;
 				}
 				case 3:{
-					
+					MenuReparaciones mr = new MenuReparaciones();
+					mr.mostrarMenuReparaciones();
 					break;
 				}
 				case 4:{
@@ -48,7 +43,7 @@ public class Menu {
 			}catch (Exception e) {
 				System.out.println("ERROR. " + e);
 			}
-		}while(id != 8);
+		}while(id != 4);
 		
 		scan.close();
 	}

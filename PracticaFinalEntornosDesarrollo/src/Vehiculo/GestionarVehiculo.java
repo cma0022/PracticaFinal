@@ -1,6 +1,9 @@
 package Vehiculo;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import Cliente.Cliente;
 
 /*
  * La clase GestionarVehiculo tiene una lista de vehículos y 
@@ -25,6 +28,7 @@ public class GestionarVehiculo {
 	public Vehiculo buscarVehiculoPorMatricula(String matricula) {
 		for (Vehiculo vehiculo : listaVehiculos) {
 			if (vehiculo.getMatricula().equals(matricula)) {
+				System.out.println(vehiculo.toString());
 				return vehiculo;
 			}
 		}
@@ -43,6 +47,7 @@ public class GestionarVehiculo {
 		ArrayList<Vehiculo> vehiculosEncontrados = new ArrayList<Vehiculo>();
 		for (Vehiculo vehiculo : listaVehiculos) {
 			if (vehiculo.getMarca().equals(marca) && vehiculo.getModelo().equals(modelo)) {
+				System.out.println(vehiculo.toString());
 				vehiculosEncontrados.add(vehiculo);
 			}
 		}
@@ -63,6 +68,7 @@ public class GestionarVehiculo {
 		ArrayList<Vehiculo> vehiculosEncontrados = new ArrayList<Vehiculo>();
 		for (Vehiculo vehiculo : listaVehiculos) {
 			if (vehiculo.getMarca().equals(marca) && vehiculo.getModelo().equals(modelo) && vehiculo.getAño() == año) {
+				System.out.println(vehiculo.toString());
 				vehiculosEncontrados.add(vehiculo);
 			}
 		}
@@ -80,17 +86,39 @@ public class GestionarVehiculo {
 	 * @param año
 	 * @param color
 	 */
-	public void modificarVehiculo(Vehiculo vehiculo, String matricula, String marca, String modelo, int año,
-			String color) {
-		vehiculo.setMatricula(matricula);
-		vehiculo.setMarca(marca);
-		vehiculo.setModelo(modelo);
-		vehiculo.setAño(año);
-		vehiculo.setColor(color);
+	public void modificarVehiculo(int indice, Vehiculo v1) {
+		Vehiculo vehiculoModificado = new Vehiculo();
+		vehiculoModificado.setMatricula(v1.getMatricula());
+		vehiculoModificado.setMarca(v1.getMarca());
+		vehiculoModificado.setModelo(v1.getModelo());
+		vehiculoModificado.setAño(v1.getAño());
+		vehiculoModificado.setColor(v1.getColor());
+		
+		listaVehiculos.set(indice, v1);
+		System.out.println("Vehículo modificado.");
 	}
 	
 	// El método borrarVehiculo elimina un objeto Vehiculo de la lista.
 	public void borrarVehiculo(Vehiculo vehiculo) {
 		listaVehiculos.remove(vehiculo);
+		System.out.println("Vehíoculo borrado.");
 	}
+	
+	public Vehiculo pedirVehiculoPorTeclado() {
+    	Scanner scan1 = new Scanner(System.in);
+    	
+    	System.out.println("Introduce la matrícula del vehículo:");
+    	String matricula1 = scan1.nextLine();
+    	System.out.println("Introduce la marca del vehículo:");
+    	String marca1 = scan1.nextLine();
+    	System.out.println("Introduce el modelo del vehículo:");
+    	String modelo1 = scan1.nextLine();
+    	System.out.println("Introduce el año del vehículo:");
+    	int anho1 = Integer.parseInt(scan1.nextLine());
+    	System.out.println("Introduce el color del vehículo:");
+    	String color1 = scan1.nextLine();
+    	
+    	Vehiculo v1 = new Vehiculo(matricula1, marca1, modelo1, anho1, color1);
+    	return v1;
+    }
 }
